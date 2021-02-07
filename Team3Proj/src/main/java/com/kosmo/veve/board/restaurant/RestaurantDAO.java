@@ -21,6 +21,18 @@ public class RestaurantDAO {
 		return sqlMapper.selectList("selectRestaurantList",map);
 	}
 
+	public List<Map> selectCafeList(Map map) {
+		return sqlMapper.selectList("selectCafeList",map);
+	}
+
+	public List<Map> selectAllList(Map map) {
+		return sqlMapper.selectList("selectAllList",map);
+	}
+
+	
+	
+	
+	
 	/*
 	public List<GallaryBoardDTO> selectBoardList(Map map) {
 		return sqlMapper.selectList("gallaryBoardSelectList",map);

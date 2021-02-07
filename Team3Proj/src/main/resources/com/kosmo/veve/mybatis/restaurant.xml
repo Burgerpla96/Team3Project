@@ -7,13 +7,22 @@
 <mapper namespace="com.kosmo.veve.mybatis.restaurant">
 	<!--resultMap사용시 column속성 필수:ibatis와 다른점  -->
 	
-	
 	<select id="selectRestaurantList" parameterType="java.util.Map" resultType="java.util.Map">
-		SELECT * FROM RESTAURANT
+		SELECT r.*, r_f.f_name as main_img_src
+		FROM restaurant r JOIN res_file r_f on r.res_no = r_f.res_no
+		WHERE category NOT LIKE '까페'
 	</select>
 	
+	<select id="selectCafeList" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT r.*, r_f.f_name as main_img_src
+		FROM restaurant r JOIN res_file r_f on r.res_no = r_f.res_no
+		WHERE category LIKE '까페'
+	</select>
 	
-	
+	<select id="selectAllList" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT r.*, r_f.f_name as main_img_src
+		FROM restaurant r JOIN res_file r_f on r.res_no = r_f.res_no
+	</select>
 	
 	
 	

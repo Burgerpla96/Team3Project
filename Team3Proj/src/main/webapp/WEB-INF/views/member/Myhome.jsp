@@ -345,7 +345,6 @@
 					<c:if test="${not isNotKakaologin }">
 						<img id="profileImage" alt="이미지 오류" src='${KakaoUserImg}'
 							onerror="this.src='/veve/resources/assets/images/basic_profile.gif';" />
-
 					</c:if>
 					<p>
 						<i

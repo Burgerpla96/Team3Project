@@ -63,11 +63,11 @@ public class RestaurantController {
 	@ResponseBody
     @RequestMapping(value="/Board/Restaurant/List.do",produces = "text/html;charset=UTF-8")
 	public String restaurantList(@RequestParam Map map) {
-    	//DB에 값의 갯수가 적으니 모든 좌표 가져와서 넘겨주고 list로 보여주기_마커까지
-    	List<Map> list = restaurantService.selectRestaurantList(map);//모든 식당
+    	
     	
     	if(map.get("category").equals("restaurant")) {//category 식당 선택이면
     		System.out.println("레스토랑");
+    		List<Map> list = restaurantService.selectRestaurantList(map);//모든 식당
     		//System.out.println(JSONArray.toJSONString(list));
     		
     		/*
@@ -89,10 +89,12 @@ public class RestaurantController {
     	}
     	else if(map.get("category").equals("cafe")) {//카테고리 까페 선택
     		System.out.println("까페");
+    		List<Map> list = restaurantService.selectCafeList(map);
     		return JSONArray.toJSONString(list);
     	}
     	else {//카테고리 전부 선택시
     		System.out.println("전체 선택");
+    		List<Map> list = restaurantService.selectAllList(map);
     		return JSONArray.toJSONString(list);
     	}
     	

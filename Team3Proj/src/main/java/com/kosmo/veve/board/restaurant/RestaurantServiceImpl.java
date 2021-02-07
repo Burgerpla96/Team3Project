@@ -20,7 +20,13 @@ public class RestaurantServiceImpl{
 	public List<Map> selectRestaurantList(Map map) {
 		return dao.selectRestaurantList(map);
 	}
-
-
+	
+	public List<Map> selectCafeList(Map map) {
+		return dao.selectCafeList(map);
+	}
+	
+	public List<Map> selectAllList(Map map) {
+		return dao.selectAllList(map);
+	}
 
 }
